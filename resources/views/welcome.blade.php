@@ -76,7 +76,7 @@
         </nav>
 
         <main class="py-4">
-            Welcome page!
+            <router-view></router-view>
         </main>
     </div>
 </body>
