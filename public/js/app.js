@@ -5316,7 +5316,9 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "navbar-brand",
     attrs: {
-      to: "/"
+      to: {
+        name: "home"
+      }
     }
   }, [_vm._v("Laravel-Vue-App")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "collapse navbar-collapse",
@@ -5332,7 +5334,9 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
-      to: "/contact"
+      to: {
+        name: "contact"
+      }
     }
   }, [_vm._v("Contact US")])], 1)])])], 1)]), _vm._v(" "), _c("router-view")], 1);
 };
