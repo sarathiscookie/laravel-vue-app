@@ -5309,10 +5309,52 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("router-view")], 1);
+  return _c("div", [_c("nav", {
+    staticClass: "navbar navbar-expand-md navbar-light bg-white shadow-sm"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("router-link", {
+    staticClass: "navbar-brand",
+    attrs: {
+      to: "/"
+    }
+  }, [_vm._v("Laravel-Vue-App")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse navbar-collapse",
+    attrs: {
+      id: "navbarSupportedContent"
+    }
+  }, [_c("ul", {
+    staticClass: "navbar-nav me-auto"
+  }), _vm._v(" "), _c("ul", {
+    staticClass: "navbar-nav ms-auto"
+  }, [_c("li", {
+    staticClass: "nav-item"
+  }, [_c("router-link", {
+    staticClass: "nav-link",
+    attrs: {
+      to: "/contact"
+    }
+  }, [_vm._v("Contact US")])], 1)])])], 1)]), _vm._v(" "), _c("router-view")], 1);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("button", {
+    staticClass: "navbar-toggler",
+    attrs: {
+      type: "button",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": "#navbarSupportedContent",
+      "aria-controls": "navbarSupportedContent",
+      "aria-expanded": "false",
+      "aria-label": "ICON"
+    }
+  }, [_c("span", {
+    staticClass: "navbar-toggler-icon"
+  })]);
+}];
 render._withStripped = true;
 
 
