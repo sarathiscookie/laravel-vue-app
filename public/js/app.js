@@ -5338,7 +5338,9 @@ var render = function render() {
         name: "contact"
       }
     }
-  }, [_vm._v("Contact US")])], 1)])])], 1)]), _vm._v(" "), _c("router-view")], 1);
+  }, [_vm._v("Contact US")])], 1)])])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "container mt-4 mb-4 pr-4 pl-4"
+  }, [_c("router-view")], 1)]);
 };
 
 var staticRenderFns = [function () {
@@ -5470,7 +5472,8 @@ var app = new Vue({
   el: '#app',
   router: _routes__WEBPACK_IMPORTED_MODULE_0__["default"],
   components: {
-    index: _Index__WEBPACK_IMPORTED_MODULE_1__["default"]
+    index: _Index__WEBPACK_IMPORTED_MODULE_1__["default"] // OR Index. Not need key. 
+
   }
 });
 

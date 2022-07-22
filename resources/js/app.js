@@ -12,6 +12,6 @@ const app = new Vue({
     el: '#app',
     router,
     components: {
-        index: Index 
+        index: Index // OR Index. Not need key. 
     }
 });
