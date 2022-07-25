@@ -15,24 +15,24 @@ export default {
         itemContent: String,
         price: Number,
     },
-    beforeCreate() {
+    /* beforeCreate() {
         console.log("Before Created!");
-    },
+    }, */
     created() {
         console.log("Created!");
     },
-    beforeMount() {
+    /* beforeMount() {
         console.log("Before Mount!");
-    },
+    }, */
     mounted() {
         console.log(this.itemTitle);
     },
     //beforeUpdate() {}, updated() {}
-    beforeDestroy() {
+    /* beforeDestroy() {
         console.log("Before Destroy!");
     },
     destroyed() {
         console.log("Destroyed");
-    }
+    } */
 };
 </script>

@@ -5272,25 +5272,28 @@ __webpack_require__.r(__webpack_exports__);
     itemContent: String,
     price: Number
   },
-  beforeCreate: function beforeCreate() {
-    console.log("Before Created!");
-  },
+
+  /* beforeCreate() {
+      console.log("Before Created!");
+  }, */
   created: function created() {
     console.log("Created!");
   },
-  beforeMount: function beforeMount() {
-    console.log("Before Mount!");
-  },
+
+  /* beforeMount() {
+      console.log("Before Mount!");
+  }, */
   mounted: function mounted() {
     console.log(this.itemTitle);
+  } //beforeUpdate() {}, updated() {}
+
+  /* beforeDestroy() {
+      console.log("Before Destroy!");
   },
-  //beforeUpdate() {}, updated() {}
-  beforeDestroy: function beforeDestroy() {
-    console.log("Before Destroy!");
-  },
-  destroyed: function destroyed() {
-    console.log("Destroyed");
-  }
+  destroyed() {
+      console.log("Destroyed");
+  } */
+
 });
 
 /***/ }),
