@@ -5271,6 +5271,25 @@ __webpack_require__.r(__webpack_exports__);
     itemTitle: String,
     itemContent: String,
     price: Number
+  },
+  beforeCreate: function beforeCreate() {
+    console.log("Before Created!");
+  },
+  created: function created() {
+    console.log("Created!");
+  },
+  beforeMount: function beforeMount() {
+    console.log("Before Mount!");
+  },
+  mounted: function mounted() {
+    console.log(this.itemTitle);
+  },
+  //beforeUpdate() {}, updated() {}
+  beforeDestroy: function beforeDestroy() {
+    console.log("Before Destroy!");
+  },
+  destroyed: function destroyed() {
+    console.log("Destroyed");
   }
 });
 
