@@ -5295,25 +5295,26 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      bookable1: null,
-      bookable2: null
+      bookables: null,
+      loading: false
     };
   },
   created: function created() {
     var _this = this;
 
+    this.loading = true;
     setTimeout(function () {
-      _this.bookable1 = {
+      _this.bookables = [{
         title: "Title One",
         content: "Content One",
         price: 1000
-      };
-      _this.bookable2 = {
+      }, {
         title: "Title Two",
         content: "Content Two",
         price: 1000
-      };
-    }, 5000);
+      }];
+      _this.loading = false;
+    }, 2000);
   }
 });
 
@@ -5497,43 +5498,16 @@ var render = function render() {
       "item-content": "64 gb, 12 px, 3 ram",
       price: 50000
     }
-  }), _vm._v(" "), _c("bookable-list-item", {
-    attrs: {
-      "item-title": "Samsung",
-      "item-content": "128 gb, 45 px, 8 ram",
-      price: 60000
-    }
-  }), _vm._v(" "), _c("bookable-list-item", {
-    attrs: {
-      "item-title": "One Plus",
-      "item-content": "128 gb, 60 px, 12 ram",
-      price: 70000
-    }
-  }), _vm._v(" "), _c("bookable-list-item", {
-    attrs: {
-      "item-title": "Nokia",
-      "item-content": "32 gb, 12 px, 8 ram",
-      price: 40000
-    }
-  }), _vm._v(" "), _c("bookable-list-item", {
-    attrs: {
-      "item-title": "Vivo",
-      "item-content": "64 gb, 12 px, 8 ram",
-      price: 30000
-    }
-  }), _vm._v(" "), _vm.bookable1 != null ? _c("bookable-list-item", {
-    attrs: {
-      "item-title": _vm.bookable1.title,
-      "item-content": _vm.bookable1.content,
-      price: _vm.bookable1.price
-    }
-  }) : _vm._e(), _vm._v(" "), _vm.bookable2 != null ? _c("bookable-list-item", {
-    attrs: {
-      "item-title": _vm.bookable2.title,
-      "item-content": _vm.bookable2.content,
-      price: _vm.bookable2.price
-    }
-  }) : _vm._e()], 1)])])])]);
+  }), _vm._v(" "), _vm.loading ? _c("div", [_vm._v("Data is loading...")]) : _c("div", _vm._l(_vm.bookables, function (bookable, index) {
+    return _c("bookable-list-item", {
+      key: index,
+      attrs: {
+        "item-title": bookable.title,
+        "item-content": bookable.content,
+        price: bookable.price
+      }
+    });
+  }), 1)], 1)])])])]);
 };
 
 var staticRenderFns = [];

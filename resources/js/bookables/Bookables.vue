@@ -11,36 +11,16 @@
                             item-content="64 gb, 12 px, 3 ram"
                             :price="50000"
                         ></bookable-list-item>
-                        <bookable-list-item
-                            item-title="Samsung"
-                            item-content="128 gb, 45 px, 8 ram"
-                            :price="60000"
-                        ></bookable-list-item>
-                        <bookable-list-item
-                            item-title="One Plus"
-                            item-content="128 gb, 60 px, 12 ram"
-                            :price="70000"
-                        ></bookable-list-item>
-                        <bookable-list-item
-                            item-title="Nokia"
-                            item-content="32 gb, 12 px, 8 ram"
-                            :price="40000"
-                        ></bookable-list-item>
-                        <bookable-list-item
-                            item-title="Vivo"
-                            item-content="64 gb, 12 px, 8 ram"
-                            :price="30000"
-                        ></bookable-list-item>
-                        <bookable-list-item v-if="bookable1 != null"
-                            :item-title="bookable1.title"
-                            :item-content="bookable1.content"
-                            :price="bookable1.price"
-                        ></bookable-list-item>
-                        <bookable-list-item v-if="bookable2 != null"
-                            :item-title="bookable2.title"
-                            :item-content="bookable2.content"
-                            :price="bookable2.price"
-                        ></bookable-list-item>
+                        <div v-if="loading">Data is loading...</div>
+                        <div v-else>
+                            <bookable-list-item
+                                v-for="(bookable, index) in bookables"
+                                :key="index"
+                                :item-title="bookable.title"
+                                :item-content="bookable.content"
+                                :price="bookable.price"
+                            ></bookable-list-item>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,23 +37,27 @@ export default {
     },
     data() {
         return {
-            bookable1: null,
-            bookable2: null,
+            bookables: null,
+            loading: false,
         };
     },
     created() {
+        this.loading = true;
         setTimeout(() => {
-            this.bookable1 = {
-                title: "Title One",
-                content: "Content One",
-                price: 1000
-            };
-            this.bookable2 = {
-                title: "Title Two",
-                content: "Content Two",
-                price: 1000
-            };
-        }, 5000);
-    }
+            this.bookables = [
+                {
+                    title: "Title One",
+                    content: "Content One",
+                    price: 1000,
+                },
+                {
+                    title: "Title Two",
+                    content: "Content Two",
+                    price: 1000,
+                },
+            ];
+            this.loading = false;
+        }, 2000);
+    },
 };
 </script>
