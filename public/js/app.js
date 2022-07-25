@@ -5293,28 +5293,20 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     BookableListItem: _BookableListItem__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-
-  /* beforeCreate() {
-      console.log("Before Created!");
-  }, */
-  created: function created() {
-    console.log("Created!");
-  },
-
-  /* beforeMount() {
-      console.log("Before Mount!");
-  }, */
-  mounted: function mounted() {
-    console.log(this.itemTitle);
-  } //beforeUpdate() {}, updated() {}
-
-  /* beforeDestroy() {
-      console.log("Before Destroy!");
-  },
-  destroyed() {
-      console.log("Destroyed");
-  } */
-
+  data: function data() {
+    return {
+      bookable1: {
+        title: "Title One",
+        content: "Content One",
+        price: 1000
+      },
+      bookable2: {
+        title: "Title Two",
+        content: "Content Two",
+        price: 1000
+      }
+    };
+  }
 });
 
 /***/ }),
@@ -5520,6 +5512,18 @@ var render = function render() {
       "item-title": "Vivo",
       "item-content": "64 gb, 12 px, 8 ram",
       price: 30000
+    }
+  }), _vm._v(" "), _c("bookable-list-item", {
+    attrs: {
+      "item-title": _vm.bookable1.title,
+      "item-content": _vm.bookable1.content,
+      price: _vm.bookable1.price
+    }
+  }), _vm._v(" "), _c("bookable-list-item", {
+    attrs: {
+      "item-title": _vm.bookable2.title,
+      "item-content": _vm.bookable2.content,
+      price: _vm.bookable2.price
     }
   })], 1)])])])]);
 };

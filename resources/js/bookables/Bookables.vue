@@ -6,13 +6,42 @@
                     <div class="card-header">Bookable Component</div>
 
                     <div class="card-body">
-                        <bookable-list-item item-title="iPhone" item-content="64 gb, 12 px, 3 ram" :price="50000"></bookable-list-item>
-                        <bookable-list-item item-title="Samsung" item-content="128 gb, 45 px, 8 ram" :price="60000"></bookable-list-item>
-                        <bookable-list-item item-title="One Plus" item-content="128 gb, 60 px, 12 ram" :price="70000"></bookable-list-item>
-                        <bookable-list-item item-title="Nokia" item-content="32 gb, 12 px, 8 ram" :price="40000"></bookable-list-item>
-                        <bookable-list-item item-title="Vivo" item-content="64 gb, 12 px, 8 ram" :price="30000"></bookable-list-item>
+                        <bookable-list-item
+                            item-title="iPhone"
+                            item-content="64 gb, 12 px, 3 ram"
+                            :price="50000"
+                        ></bookable-list-item>
+                        <bookable-list-item
+                            item-title="Samsung"
+                            item-content="128 gb, 45 px, 8 ram"
+                            :price="60000"
+                        ></bookable-list-item>
+                        <bookable-list-item
+                            item-title="One Plus"
+                            item-content="128 gb, 60 px, 12 ram"
+                            :price="70000"
+                        ></bookable-list-item>
+                        <bookable-list-item
+                            item-title="Nokia"
+                            item-content="32 gb, 12 px, 8 ram"
+                            :price="40000"
+                        ></bookable-list-item>
+                        <bookable-list-item
+                            item-title="Vivo"
+                            item-content="64 gb, 12 px, 8 ram"
+                            :price="30000"
+                        ></bookable-list-item>
+                        <bookable-list-item
+                            :item-title="bookable1.title"
+                            :item-content="bookable1.content"
+                            :price="bookable1.price"
+                        ></bookable-list-item>
+                        <bookable-list-item
+                            :item-title="bookable2.title"
+                            :item-content="bookable2.content"
+                            :price="bookable2.price"
+                        ></bookable-list-item>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -24,26 +53,21 @@ import BookableListItem from "./BookableListItem";
 
 export default {
     components: {
-        BookableListItem
+        BookableListItem,
     },
-    /* beforeCreate() {
-        console.log("Before Created!");
-    }, */
-    created() {
-        console.log("Created!");
-    },
-    /* beforeMount() {
-        console.log("Before Mount!");
-    }, */
-    mounted() {
-        console.log(this.itemTitle);
-    },
-    //beforeUpdate() {}, updated() {}
-    /* beforeDestroy() {
-        console.log("Before Destroy!");
-    },
-    destroyed() {
-        console.log("Destroyed");
-    } */
-}
+    data() {
+        return {
+            bookable1: {
+                title: "Title One",
+                content: "Content One",
+                price: 1000
+            },
+            bookable2: {
+                title: "Title Two",
+                content: "Content Two",
+                price: 1000
+            },
+        };
+    }
+};
 </script>
