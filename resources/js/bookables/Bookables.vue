@@ -12,7 +12,7 @@
                         <bookable-list-item item-title="Nokia" item-content="32 gb, 12 px, 8 ram" :price="40000"></bookable-list-item>
                         <bookable-list-item item-title="Vivo" item-content="64 gb, 12 px, 8 ram" :price="30000"></bookable-list-item>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -25,6 +25,25 @@ import BookableListItem from "./BookableListItem";
 export default {
     components: {
         BookableListItem
-    }
+    },
+    /* beforeCreate() {
+        console.log("Before Created!");
+    }, */
+    created() {
+        console.log("Created!");
+    },
+    /* beforeMount() {
+        console.log("Before Mount!");
+    }, */
+    mounted() {
+        console.log(this.itemTitle);
+    },
+    //beforeUpdate() {}, updated() {}
+    /* beforeDestroy() {
+        console.log("Before Destroy!");
+    },
+    destroyed() {
+        console.log("Destroyed");
+    } */
 }
 </script>
