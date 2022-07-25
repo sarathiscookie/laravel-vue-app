@@ -31,12 +31,12 @@
                             item-content="64 gb, 12 px, 8 ram"
                             :price="30000"
                         ></bookable-list-item>
-                        <bookable-list-item
+                        <bookable-list-item v-if="bookable1 != null"
                             :item-title="bookable1.title"
                             :item-content="bookable1.content"
                             :price="bookable1.price"
                         ></bookable-list-item>
-                        <bookable-list-item
+                        <bookable-list-item v-if="bookable2 != null"
                             :item-title="bookable2.title"
                             :item-content="bookable2.content"
                             :price="bookable2.price"
@@ -57,17 +57,23 @@ export default {
     },
     data() {
         return {
-            bookable1: {
+            bookable1: null,
+            bookable2: null,
+        };
+    },
+    created() {
+        setTimeout(() => {
+            this.bookable1 = {
                 title: "Title One",
                 content: "Content One",
                 price: 1000
-            },
-            bookable2: {
+            };
+            this.bookable2 = {
                 title: "Title Two",
                 content: "Content Two",
                 price: 1000
-            },
-        };
+            };
+        }, 5000);
     }
 };
 </script>

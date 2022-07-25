@@ -5295,17 +5295,25 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      bookable1: {
+      bookable1: null,
+      bookable2: null
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    setTimeout(function () {
+      _this.bookable1 = {
         title: "Title One",
         content: "Content One",
         price: 1000
-      },
-      bookable2: {
+      };
+      _this.bookable2 = {
         title: "Title Two",
         content: "Content Two",
         price: 1000
-      }
-    };
+      };
+    }, 5000);
   }
 });
 
@@ -5513,19 +5521,19 @@ var render = function render() {
       "item-content": "64 gb, 12 px, 8 ram",
       price: 30000
     }
-  }), _vm._v(" "), _c("bookable-list-item", {
+  }), _vm._v(" "), _vm.bookable1 != null ? _c("bookable-list-item", {
     attrs: {
       "item-title": _vm.bookable1.title,
       "item-content": _vm.bookable1.content,
       price: _vm.bookable1.price
     }
-  }), _vm._v(" "), _c("bookable-list-item", {
+  }) : _vm._e(), _vm._v(" "), _vm.bookable2 != null ? _c("bookable-list-item", {
     attrs: {
       "item-title": _vm.bookable2.title,
       "item-content": _vm.bookable2.content,
       price: _vm.bookable2.price
     }
-  })], 1)])])])]);
+  }) : _vm._e()], 1)])])])]);
 };
 
 var staticRenderFns = [];
