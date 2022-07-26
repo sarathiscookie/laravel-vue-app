@@ -1,10 +1,14 @@
 <template>
     <div>
-        <ul class="list-group">
-            <li class="list-group-item">{{ itemTitle }}</li>
-            <li class="list-group-item">{{ itemContent }}</li>
-            <li class="list-group-item">{{ price }}</li>
-        </ul>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ itemTitle }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    {{ price }}
+                </h6>
+                <p class="card-text">{{ itemContent }}</p>
+            </div>
+        </div>
     </div>
 </template>
 

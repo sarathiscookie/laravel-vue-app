@@ -6,20 +6,33 @@
                     <div class="card-header">Bookable Component</div>
 
                     <div class="card-body">
-                        <bookable-list-item
-                            item-title="iPhone"
-                            item-content="64 gb, 12 px, 3 ram"
-                            :price="50000"
-                        ></bookable-list-item>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <bookable-list-item
+                                    item-title="iPhone"
+                                    item-content="64 gb, 12 px, 3 ram"
+                                    :price="50000"
+                                ></bookable-list-item>
+                            </div>
+                        </div>
+
                         <div v-if="loading">Data is loading...</div>
                         <div v-else>
-                            <bookable-list-item
-                                v-for="(bookable, index) in bookables"
-                                :key="index"
-                                :item-title="bookable.title"
-                                :item-content="bookable.content"
-                                :price="bookable.price"
-                            ></bookable-list-item>
+                            <div class="row mb-4" v-for="row in rows" :key="'row' + row">
+                                <div
+                                    class="col"
+                                    v-for="(
+                                        bookable, column
+                                    ) in bookablesInRow(row)"
+                                    :key="'row' + row + 'column' + column"
+                                >
+                                <bookable-list-item
+                                    :item-title="bookable.title"
+                                    :item-content="bookable.content"
+                                    :price="bookable.price"
+                                ></bookable-list-item>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,7 +52,20 @@ export default {
         return {
             bookables: null,
             loading: false,
+            columns: 3,
         };
+    },
+    computed: {
+        rows() {
+            return this.bookables == null
+                ? 0
+                : Math.ceil(this.bookables.length / this.columns);
+        },
+    },
+    methods: {
+        bookablesInRow(row) {
+            return this.bookables.slice((row - 1) * this.columns, row * this.columns)
+        }
     },
     created() {
         this.loading = true;
@@ -53,6 +79,26 @@ export default {
                 {
                     title: "Title Two",
                     content: "Content Two",
+                    price: 1000,
+                },
+                {
+                    title: "Title Three",
+                    content: "Content Three",
+                    price: 1000,
+                },
+                {
+                    title: "Title Four",
+                    content: "Content Four",
+                    price: 1000,
+                },
+                {
+                    title: "Title Five",
+                    content: "Content Five",
+                    price: 1000,
+                },
+                {
+                    title: "Title Six",
+                    content: "Content Six",
                     price: 1000,
                 },
             ];
