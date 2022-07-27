@@ -25,9 +25,7 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $fields['name'],
             'email' => $fields['email'],
-            'password' => Hash::make($fields['password']),
-            'role' => 'user',
-            'active' => 'yes',
+            'password' => Hash::make($fields['password'])
         ]);
 
         $token = $user->createToken('apiapptoken');
