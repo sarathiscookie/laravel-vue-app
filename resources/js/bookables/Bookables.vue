@@ -32,6 +32,8 @@
                                     :price="bookable.price"
                                 ></bookable-list-item>
                                 </div>
+
+                                <div class="col" v-for="p in placeholdersInRow(row)" :key="'placeholder'+row+p"></div>
                             </div>
                         </div>
                     </div>
@@ -65,6 +67,9 @@ export default {
     methods: {
         bookablesInRow(row) {
             return this.bookables.slice((row - 1) * this.columns, row * this.columns);
+        },
+        placeholdersInRow(row) {
+            return this.columns - this.bookablesInRow(row).length;
         }
     },
     created() {

@@ -5308,6 +5308,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     bookablesInRow: function bookablesInRow(row) {
       return this.bookables.slice((row - 1) * this.columns, row * this.columns);
+    },
+    placeholdersInRow: function placeholdersInRow(row) {
+      return this.columns - this.bookablesInRow(row).length;
     }
   },
   created: function created() {
@@ -5511,7 +5514,7 @@ var render = function render() {
     return _c("div", {
       key: "row" + row,
       staticClass: "row mb-4"
-    }, _vm._l(_vm.bookablesInRow(row), function (bookable, column) {
+    }, [_vm._l(_vm.bookablesInRow(row), function (bookable, column) {
       return _c("div", {
         key: "row" + row + "column" + column,
         staticClass: "col"
@@ -5522,7 +5525,12 @@ var render = function render() {
           price: bookable.price
         }
       })], 1);
-    }), 0);
+    }), _vm._v(" "), _vm._l(_vm.placeholdersInRow(row), function (p) {
+      return _c("div", {
+        key: "placeholder" + row + p,
+        staticClass: "col"
+      });
+    })], 2);
   }), 0)])])])])]);
 };
 
