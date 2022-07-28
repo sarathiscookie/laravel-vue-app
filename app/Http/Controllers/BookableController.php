@@ -43,12 +43,12 @@ class BookableController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param \App\Models\Bookable $bookable
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Bookable $bookable)
     {
-        //
+        return response()->json($bookable);
     }
 
     /**
