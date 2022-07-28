@@ -5314,45 +5314,10 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     this.loading = true;
-    var promise_result = new Promise(function (resolve, reject) {
-      console.log(resolve);
-      console.log(reject);
-      setTimeout(function () {
-        return resolve('Resolved');
-      }, 3000);
-    }).then(function (result) {
-      console.log("First result: ".concat(result));
-    })["catch"](function (error) {
-      console.log("Error ".concat(error));
-    });
-    setTimeout(function () {
-      _this.bookables = [{
-        title: "Title One",
-        content: "Content One",
-        price: 1000
-      }, {
-        title: "Title Two",
-        content: "Content Two",
-        price: 1000
-      }, {
-        title: "Title Three",
-        content: "Content Three",
-        price: 1000
-      }, {
-        title: "Title Four",
-        content: "Content Four",
-        price: 1000
-      }, {
-        title: "Title Five",
-        content: "Content Five",
-        price: 1000
-      }, {
-        title: "Title Six",
-        content: "Content Six",
-        price: 1000
-      }];
+    var request = axios.get('/api/bookables').then(function (response) {
+      _this.bookables = response.data;
       _this.loading = false;
-    }, 2000);
+    });
   }
 });
 

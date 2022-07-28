@@ -70,49 +70,11 @@ export default {
     created() {
         this.loading = true;
 
-        const promise_result = new Promise((resolve, reject) => {
-            console.log(resolve);
-            console.log(reject);
-            setTimeout(() => resolve('Resolved'), 3000);
-        })
-            .then((result) => {console.log(`First result: ${result}`)})
-            .catch((error) => {console.log(`Error ${error}`)});
-
-        setTimeout(() => {
-            this.bookables = [
-                {
-                    title: "Title One",
-                    content: "Content One",
-                    price: 1000,
-                },
-                {
-                    title: "Title Two",
-                    content: "Content Two",
-                    price: 1000,
-                },
-                {
-                    title: "Title Three",
-                    content: "Content Three",
-                    price: 1000,
-                },
-                {
-                    title: "Title Four",
-                    content: "Content Four",
-                    price: 1000,
-                },
-                {
-                    title: "Title Five",
-                    content: "Content Five",
-                    price: 1000,
-                },
-                {
-                    title: "Title Six",
-                    content: "Content Six",
-                    price: 1000,
-                },
-            ];
+        const request = axios.get('/api/bookables').then((response) => {
+            this.bookables = response.data;
             this.loading = false;
-        }, 2000);
+        });
+        
     },
 };
 </script>
