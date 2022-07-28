@@ -5454,7 +5454,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("div", {
-    staticClass: "card"
+    staticClass: "card w-100"
   }, [_c("div", {
     staticClass: "card-body"
   }, [_c("h5", {
@@ -5500,17 +5500,7 @@ var render = function render() {
     staticClass: "card-header"
   }, [_vm._v("Bookable Component")]), _vm._v(" "), _c("div", {
     staticClass: "card-body"
-  }, [_c("div", {
-    staticClass: "row mb-4"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("bookable-list-item", {
-    attrs: {
-      "item-title": "iPhone",
-      "item-description": "64 gb, 12 px, 3 ram",
-      price: 50000
-    }
-  })], 1)]), _vm._v(" "), _vm.loading ? _c("div", [_vm._v("Data is loading...")]) : _c("div", _vm._l(_vm.rows, function (row) {
+  }, [_vm.loading ? _c("div", [_vm._v("Data is loading...")]) : _c("div", _vm._l(_vm.rows, function (row) {
     return _c("div", {
       key: "row" + row,
       staticClass: "row mb-4"
