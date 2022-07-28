@@ -6,7 +6,7 @@
                 <h6 class="card-subtitle mb-2 text-muted">
                     {{ price }}
                 </h6>
-                <p class="card-text">{{ itemContent }}</p>
+                <p class="card-text">{{ itemDescription }}</p>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
 export default {
     props: {
         itemTitle: String,
-        itemContent: String,
+        itemDescription: String,
         price: Number,
     },
 };

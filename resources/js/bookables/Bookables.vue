@@ -10,7 +10,7 @@
                             <div class="col">
                                 <bookable-list-item
                                     item-title="iPhone"
-                                    item-content="64 gb, 12 px, 3 ram"
+                                    item-description="64 gb, 12 px, 3 ram"
                                     :price="50000"
                                 ></bookable-list-item>
                             </div>
@@ -28,7 +28,7 @@
                                 >
                                 <bookable-list-item
                                     :item-title="bookable.title"
-                                    :item-content="bookable.content"
+                                    :item-description="bookable.description"
                                     :price="bookable.price"
                                 ></bookable-list-item>
                                 </div>
@@ -64,7 +64,7 @@ export default {
     },
     methods: {
         bookablesInRow(row) {
-            return this.bookables.slice((row - 1) * this.columns, row * this.columns)
+            return this.bookables.slice((row - 1) * this.columns, row * this.columns);
         }
     },
     created() {
