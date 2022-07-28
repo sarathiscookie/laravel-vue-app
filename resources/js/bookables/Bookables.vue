@@ -70,13 +70,13 @@ export default {
     created() {
         this.loading = true;
 
-        new Promise((resolve, reject) => {
+        const promise_result = new Promise((resolve, reject) => {
             console.log(resolve);
             console.log(reject);
-            setTimeout(() => reject('Rejected'), 5000);
+            setTimeout(() => resolve('Resolved'), 3000);
         })
-            .then(result => console.log(`Success ${result}`))
-            .catch(error => console.log(`Error ${error}`));
+            .then((result) => {console.log(`First result: ${result}`)})
+            .catch((error) => {console.log(`Error ${error}`)});
 
         setTimeout(() => {
             this.bookables = [
