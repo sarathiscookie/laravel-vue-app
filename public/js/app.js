@@ -5266,20 +5266,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      bookable: null
+      bookable: null,
+      loading: false
     };
   },
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/bookables/".concat(this.$route.params.id)).then(function (response) {
+    this.loading = true;
+    axios.get("/api/bookables/".concat(this.$route.params.id)).then(function (response) {
       _this.bookable = response.data;
+      _this.loading = false;
     });
   }
 });
@@ -5484,10 +5484,35 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_vm._v("\n    Hello I am bookable. My id is " + _vm._s(this.$route.params.id) + "\n")]);
+  return _c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("div", {
+    staticClass: "col-md-8"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-body"
+  }, [!_vm.loading ? _c("div", [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("\n                        " + _vm._s(_vm.bookable.title) + "\n                    ")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("article", [_vm._v(_vm._s(_vm.bookable.description))])]) : _c("div", [_vm._v("Data is Loading...")])])])]), _vm._v(" "), _vm._m(0)]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Payment")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])])])]);
+}];
 render._withStripped = true;
 
 
@@ -5513,13 +5538,22 @@ var render = function render() {
     staticClass: "card w-100"
   }, [_c("div", {
     staticClass: "card-body"
+  }, [_c("router-link", {
+    attrs: {
+      to: {
+        name: "bookable",
+        params: {
+          id: _vm.id
+        }
+      }
+    }
   }, [_c("h5", {
     staticClass: "card-title"
-  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c("h6", {
+  }, [_vm._v(_vm._s(_vm.title))])]), _vm._v(" "), _c("h6", {
     staticClass: "card-subtitle mb-2 text-muted"
   }, [_vm._v("\n                " + _vm._s(_vm.id) + "\n            ")]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v(_vm._s(_vm.description))])])])]);
+  }, [_vm._v(_vm._s(_vm.description))])], 1)])]);
 };
 
 var staticRenderFns = [];
@@ -5545,11 +5579,9 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
     staticClass: "row justify-content-center"
   }, [_c("div", {
-    staticClass: "col-md-8"
+    staticClass: "col-md-12"
   }, [_c("div", {
     staticClass: "card"
   }, [_c("div", {
@@ -5571,7 +5603,7 @@ var render = function render() {
         staticClass: "col"
       });
     })], 2);
-  }), 0)])])])])]);
+  }), 0)])])])]);
 };
 
 var staticRenderFns = [];
@@ -44025,18 +44057,6 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","/Users/sarathts/code/lar
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	
