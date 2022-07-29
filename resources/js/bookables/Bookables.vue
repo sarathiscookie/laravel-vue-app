@@ -1,20 +1,18 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Bookable Component</div>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Bookable Component</div>
 
-                    <div class="card-body">
-                        <div v-if="loading">Data is loading...</div>
-                        <div v-else>
-                            <div class="row mb-4" v-for="row in rows" :key="'row' + row">
-                                <div class="col d-flex align-items-stretch" v-for="(bookable, column) in bookablesInRow(row)" :key="'row' + row + 'column' + column">
-                                    <bookable-list-item v-bind="bookable"></bookable-list-item>
-                                </div>
-
-                                <div class="col" v-for="p in placeholdersInRow(row)" :key="'placeholder'+row+p"></div>
+                <div class="card-body">
+                    <div v-if="loading">Data is loading...</div>
+                    <div v-else>
+                        <div class="row mb-4" v-for="row in rows" :key="'row' + row">
+                            <div class="col d-flex align-items-stretch" v-for="(bookable, column) in bookablesInRow(row)" :key="'row' + row + 'column' + column">
+                                <bookable-list-item v-bind="bookable"></bookable-list-item>
                             </div>
+
+                            <div class="col" v-for="p in placeholdersInRow(row)" :key="'placeholder'+row+p"></div>
                         </div>
                     </div>
                 </div>
