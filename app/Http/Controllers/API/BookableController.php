@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Models\Bookable;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class BookableController extends Controller
     {
         $bookables = Bookable::all();
         
-        return response()->json($bookables); 
+        return response()->json($bookables);
     }
 
     /**
