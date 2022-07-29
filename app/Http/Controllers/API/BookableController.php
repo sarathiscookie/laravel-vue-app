@@ -17,11 +17,12 @@ class BookableController extends Controller
      */
     public function index()
     {
-        return BookableIndexResource::collection(
+        /*return BookableIndexResource::collection(
             Bookable::all()
-        );
-        /*$bookables = Bookable::all();
-        return response()->json($bookables);*/
+        );*/
+        $bookables = Bookable::all();
+        
+        return response()->json($bookables);
     }
 
     /**
@@ -52,10 +53,10 @@ class BookableController extends Controller
      * @param \App\Models\Bookable $bookable
      * @return \Illuminate\Http\Response
      */
-    public function show(/*Bookable $bookable,*/ $id)
+    public function show(Bookable $bookable/*, $id*/)
     {
-        return new BookableShowResource(Bookable::findOrFail($id));
-        //return response()->json($bookable);
+        //return new BookableShowResource(Bookable::findOrFail($id));
+        return response()->json($bookable);
     }
 
     /**

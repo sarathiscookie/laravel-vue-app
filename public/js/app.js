@@ -5278,7 +5278,8 @@ __webpack_require__.r(__webpack_exports__);
 
     this.loading = true;
     axios.get("/api/bookables/".concat(this.$route.params.id)).then(function (response) {
-      _this.bookable = response.data.data;
+      //this.bookable = response.data.data; //Purpose for eloquent API Resource.
+      _this.bookable = response.data;
       _this.loading = false;
     });
   }
@@ -5349,7 +5350,8 @@ __webpack_require__.r(__webpack_exports__);
 
     this.loading = true;
     axios.get('/api/bookables').then(function (response) {
-      _this.bookables = response.data.data;
+      //this.bookables = response.data.data; //Purpose for Elequent API Resource.
+      _this.bookables = response.data;
       _this.loading = false;
     });
   }
