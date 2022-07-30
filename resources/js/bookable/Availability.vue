@@ -5,11 +5,11 @@
         <form class="row g-3">
             <div class="col-md-6">
                 <label for="from" class="form-label">From</label>
-                <input type="text" name="Start Date" class="form-control" placeholder="Start Date">
+                <input type="text" name="Start Date" class="form-control" placeholder="Start Date" v-model="from">
             </div>
             <div class="col-md-6">
                 <label for="to" class="form-label">To</label>
-                <input type="text" name="End Date" class="form-control" placeholder="End Date">
+                <input type="text" name="End Date" class="form-control" placeholder="End Date" v-model="to">
             </div>
             <div class="d-grid">
                 <button class="btn btn-secondary btn-sm">Check!</button>
@@ -17,6 +17,17 @@
         </form>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            from: null,
+            to: null
+        }
+    }
+}
+</script>
 
 <style scoped>
 label {
