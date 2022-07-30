@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bookable extends Model
+class Booking extends Model
 {
     use HasFactory;
 
@@ -17,10 +17,10 @@ class Bookable extends Model
     protected $guarded = ['id'];
 
     /**
-     * Get the bookings for bookable.
+     * Get the bookable that owns the booking.
      */
-    public function bookings()
+    public function bookable()
     {
-        return $this->hasMany(Booking::class);
+        return $this->belongsTo(Bookable::class);
     }
 }
