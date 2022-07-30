@@ -5272,6 +5272,11 @@ __webpack_require__.r(__webpack_exports__);
       from: null,
       to: null
     };
+  },
+  methods: {
+    check: function check() {
+      alert('Check date!!!');
+    }
   }
 });
 
@@ -5575,19 +5580,17 @@ var render = function render() {
         _vm.to = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _vm._m(0)])]);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
+  })]), _vm._v(" "), _c("div", {
     staticClass: "d-grid"
   }, [_c("button", {
-    staticClass: "btn btn-secondary btn-sm"
-  }, [_vm._v("Check!")])]);
-}];
+    staticClass: "btn btn-secondary btn-sm",
+    on: {
+      click: _vm.check
+    }
+  }, [_vm._v("Check!")])])])]);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 

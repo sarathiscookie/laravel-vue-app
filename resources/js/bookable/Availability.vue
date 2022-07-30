@@ -12,7 +12,7 @@
                 <input type="text" name="End Date" class="form-control" placeholder="End Date" v-model="to">
             </div>
             <div class="d-grid">
-                <button class="btn btn-secondary btn-sm">Check!</button>
+                <button class="btn btn-secondary btn-sm" @click="check">Check!</button>
             </div>
         </form>
     </div>
@@ -24,6 +24,11 @@ export default {
         return {
             from: null,
             to: null
+        }
+    },
+    methods: {
+        check() {
+            alert('Check date!!!')
         }
     }
 }
