@@ -5,11 +5,11 @@
         <form class="row g-3">
             <div class="col-md-6">
                 <label for="from" class="form-label">From</label>
-                <input type="text" name="Start Date" class="form-control" placeholder="Start Date" v-model="from">
+                <input type="text" name="Start Date" class="form-control" placeholder="Start Date" v-model="from" @keyup.enter="check">
             </div>
             <div class="col-md-6">
                 <label for="to" class="form-label">To</label>
-                <input type="text" name="End Date" class="form-control" placeholder="End Date" v-model="to">
+                <input type="text" name="End Date" class="form-control" placeholder="End Date" v-model="to" @keyup.enter="check">
             </div>
             <div class="d-grid">
                 <button class="btn btn-secondary btn-sm" @click="check">Check!</button>
