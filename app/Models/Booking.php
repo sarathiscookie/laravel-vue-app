@@ -23,4 +23,16 @@ class Booking extends Model
     {
         return $this->belongsTo(Bookable::class);
     }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeBetweenDates($query, $from, $to)
+    {
+        return $query->where('to', '>=', $from)
+            ->where('from', '<=', $to);
+    }
 }
