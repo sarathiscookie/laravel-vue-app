@@ -25,6 +25,14 @@ class Bookable extends Model
     }
 
     /**
+     * Get the reviews for bookable.
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    /**
      * 
      */
     public function availableFor($from, $to): bool

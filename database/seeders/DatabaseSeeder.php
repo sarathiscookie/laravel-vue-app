@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Bookable;
 use App\Models\Booking;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -38,6 +39,11 @@ class DatabaseSeeder extends Seeder
             }
             
             $bookable->bookings()->saveMany($bookings);
+        });
+
+        Bookable::all()->each(function (Bookable $bookable) {
+            $reviews = Review::factory(5)->make();
+            $bookable->reviews()->saveMany($reviews);
         });
         
     }

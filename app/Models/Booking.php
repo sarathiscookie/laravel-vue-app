@@ -25,6 +25,13 @@ class Booking extends Model
     }
 
     /**
+     * Get the review that owns the booking.
+     */
+    public function review()
+    {
+        return $this->hasOne(Review::class);
+    }
+    /**
      * Scope a query to only include popular users.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
