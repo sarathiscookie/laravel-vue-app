@@ -5270,12 +5270,43 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       from: null,
-      to: null
+      to: null,
+      loading: false,
+      status: null,
+      errors: null
     };
   },
   methods: {
     check: function check() {
-      alert('Check date!!!');
+      var _this = this;
+
+      this.loading = true;
+      this.errors = null;
+      axios.get("/api/bookables/".concat(this.$route.params.id, "/availability?from=").concat(this.from, "&to=").concat(this.to)).then(function (response) {
+        _this.status = response.status;
+      })["catch"](function (error) {
+        if (422 == error.response.status) {
+          _this.errors = error.response.data.errors;
+        }
+
+        _this.status = error.response.status;
+      }).then(function () {
+        _this.loading = false;
+      });
+    },
+    errorFor: function errorFor(field) {
+      return this.hasErrors && this.errors[field] ? this.errors[field] : null;
+    }
+  },
+  computed: {
+    hasErrors: function hasErrors() {
+      return 422 == this.status && this.errors != null;
+    },
+    hasAvailability: function hasAvailability() {
+      return 200 == this.status;
+    },
+    noAvailability: function noAvailability() {
+      return 404 == this.status;
     }
   }
 });
@@ -5520,7 +5551,11 @@ var render = function render() {
 
   return _c("div", [_c("h6", {
     staticClass: "text-uppercase text-secondary font-weight-bolder"
-  }, [_vm._v("Check Availability")]), _vm._v(" "), _c("form", {
+  }, [_vm._v("Check Availability\n        "), _vm.noAvailability ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v("(NOT AVAILABLE)")]) : _vm._e(), _vm._v(" "), _vm.hasAvailability ? _c("span", {
+    staticClass: "text-success"
+  }, [_vm._v("(AVAILABLE)")]) : _vm._e()]), _vm._v(" "), _c("form", {
     staticClass: "row g-3"
   }, [_c("div", {
     staticClass: "col-md-6"
@@ -5537,6 +5572,9 @@ var render = function render() {
       expression: "from"
     }],
     staticClass: "form-control",
+    "class": [{
+      "is-invalid": this.errorFor("from")
+    }],
     attrs: {
       type: "text",
       name: "Start Date",
@@ -5555,7 +5593,12 @@ var render = function render() {
         _vm.from = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._l(this.errorFor("from"), function (error, index) {
+    return _c("div", {
+      key: "from" + index,
+      staticClass: "invalid-feedback"
+    }, [_vm._v(_vm._s(error))]);
+  })], 2), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("label", {
     staticClass: "form-label",
@@ -5570,6 +5613,9 @@ var render = function render() {
       expression: "to"
     }],
     staticClass: "form-control",
+    "class": [{
+      "is-invalid": this.errorFor("to")
+    }],
     attrs: {
       type: "text",
       name: "End Date",
@@ -5588,10 +5634,18 @@ var render = function render() {
         _vm.to = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._l(this.errorFor("to"), function (error, index) {
+    return _c("div", {
+      key: "to" + index,
+      staticClass: "invalid-feedback"
+    }, [_vm._v(_vm._s(error))]);
+  })], 2), _vm._v(" "), _c("div", {
     staticClass: "d-grid"
   }, [_c("button", {
     staticClass: "btn btn-secondary btn-sm",
+    attrs: {
+      disabled: _vm.loading
+    },
     on: {
       click: _vm.check
     }

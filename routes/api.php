@@ -32,4 +32,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 Route::resource('bookables', BookableController::class)->only(['index', 'show']);
+
 Route::get('/bookables/{bookable}/availability', BookableAvailabilityController::class)->name('bookables.availability.show');
