@@ -75,9 +75,9 @@ export default {
 </script>
 
 <style scoped>
-label {
-    text-transform: uppercase;
-    color:gray;
-    font-weight: bolder;
-}
+    label {
+        text-transform: uppercase;
+        color:gray;
+        font-weight: bolder;
+    }
 </style>
