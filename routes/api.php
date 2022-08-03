@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BookableAvailabilityController;
 use App\Http\Controllers\API\BookableController;
+use App\Http\Controllers\API\BookableReviewController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::resource('bookables', BookableController::class)->only(['index', 'show']);
+// apiResource automatically exclude create and edit.
+Route::apiResource('bookables', BookableController::class)->only(['index', 'show']);
 
 Route::get('/bookables/{bookable}/availability', BookableAvailabilityController::class)->name('bookables.availability.show');
+
+Route::get('bookables/{bookable}/reviews', BookableReviewController::class)->name('bookables.reviews.index');
