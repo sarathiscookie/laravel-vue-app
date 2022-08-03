@@ -54,7 +54,7 @@ export default {
         this.loading = true;
 
         axios.get('/api/bookables').then((response) => {
-            //this.bookables = response.data.data; //Purpose for Elequent API Resource.
+            //this.bookables = response.data.data; //Purpose for Eloquent API Resource.
             this.bookables = response.data;
             this.loading = false;
         });
