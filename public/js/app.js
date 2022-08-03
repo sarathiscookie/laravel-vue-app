@@ -5999,10 +5999,23 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_vm._v("\n    Hello\n")]);
+  return _vm._m(0);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "d-flex"
+  }, [_c("i", {
+    staticClass: "fas fa-star"
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fas fa-star-half-alt"
+  }), _vm._v(" "), _c("i", {
+    staticClass: "far fa-star"
+  })]);
+}];
 render._withStripped = true;
 
 
