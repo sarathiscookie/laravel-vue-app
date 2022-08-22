@@ -6,6 +6,7 @@ use App\Http\Controllers\API\BookableController;
 use App\Http\Controllers\API\BookableReviewController;
 use App\Http\Controllers\API\CarController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\UserController as APIUserController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 // Route groups 
 Route::middleware(['auth:sanctum'])->group(function () {
 
-    Route::resource('/users', UserController::class);
+    Route::apiResource('/users', APIUserController::class);
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
