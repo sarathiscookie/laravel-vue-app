@@ -4,6 +4,8 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BookableAvailabilityController;
 use App\Http\Controllers\API\BookableController;
 use App\Http\Controllers\API\BookableReviewController;
+use App\Http\Controllers\API\CarController;
+use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +40,7 @@ Route::apiResource('bookables', BookableController::class)->only(['index', 'show
 Route::get('/bookables/{bookable}/availability', BookableAvailabilityController::class)->name('bookables.availability.show');
 
 Route::get('bookables/{bookable}/reviews', BookableReviewController::class)->name('bookables.reviews.index');
+
+Route::resource('/cars', CarController::class);
+
+Route::resource('/products', ProductController::class);
