@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any?}', function () {
+/*Route::get('/{any?}', function () {
     return view('welcome');
-})->where('any', '^(?!api\/)[\/\w\.\,-]*');
+})->where('any', '^(?!api\/)[\/\w\.\,-]*'); */
 
-Auth::routes();
-
-#Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
